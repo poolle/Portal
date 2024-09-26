@@ -1,0 +1,768 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    flex: 1; /* Esto asegura que el contenido principal ocupe todo el espacio disponible */
+}
+
+/* Encabezado */
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+nav .left-nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav .left-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav .left-nav ul li a:hover {
+    background-color: #ddd;
+}
+
+nav .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav .right-nav form {
+    display: flex;
+    align-items: center;
+}
+
+nav .right-nav input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+nav .right-nav button {
+    padding: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav .right-nav button:hover {
+    background-color: #0056b3;
+}
+
+nav .login a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav .login a img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+/* Lista de eventos */
+main {
+    padding: 20px;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.event-date {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.event-date p:first-child {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.event-info {
+    flex: 2;
+    padding: 0 15px;
+}
+
+.event-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.event-info p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #777;
+}
+
+.event-image img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.event-details {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-details a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* Sección de publicidad */
+.advertising {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 15px 0;
+}
+
+.ad {
+    width: 45%;
+    text-align: center;
+}
+
+.ad img {
+    width: 100%;
+    height: auto;
+    border: 2px dashed #ccc;
+    padding: 10px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* _________________________________________________________________ */
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Estilos específicos para la página de login y registro */
+.login-register-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #3b3b98, #9b59b6);
+    height: 100%;
+    color: white;
+}
+
+/* Contenedor de login y registro */
+.login-register-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+    position: relative;
+}
+
+/* Línea divisoria */
+.login-register-container::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.5);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Estilos comunes a las cajas de login y registro */
+.login-box, .register-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.login-box h2, .register-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f4f4f4;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    color: #3b3b98;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff7979;
+    color: white;
+}
+
+.login-links {
+    margin-top: 15px;
+}
+
+.login-links a {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.login-links a:hover {
+    color: #ff7979;
+}
+
+/* Pie de página */
+footer {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+/* ______________________________________________________________________________________________________________________________-- *
+/* Estilos para el calendario */
+/* Fondo suave */
+body {
+    background-color: #f0f4f8; /* Un gris claro para mejor legibilidad */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación horizontal */
+.calendar-nav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Alineación horizontal */
+    gap: 30px; /* Espacio entre los elementos */
+    padding: 15px 30px;
+    background-color: #3b3b98; /* Fondo oscuro para contrastar con el nuevo fondo */
+}
+
+.calendar-nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.calendar-nav li a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes del tamaño del calendario */
+.calendar {
+    width: 80%; /* Aumentamos el tamaño del calendario */
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.calendar th, .calendar td {
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.calendar td {
+    height: 100px; /* Celdas más grandes */
+}
+
+/* Ajuste del pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3b3b98;
+    color: white;
+    margin-top: 30px;
+}
+/* Fondo suave */
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación horizontal */
+.calendar-nav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 15px 30px;
+    background-color: #3b3b98;
+}
+
+.calendar-nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.calendar-nav li a:hover {
+    text-decoration: underline;
+}
+
+/* Ajuste del contenedor del calendario */
+.calendar-page {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+    gap: 20px;
+}
+
+/* Calendario central ocupa más espacio */
+.calendar-container {
+    width: 75%; /* Aumentamos el espacio del calendario */
+    margin: 0 auto;
+}
+
+/* Mini calendario a la derecha */
+.sidebar-right {
+    width: 20%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-left: 1px solid #ddd;
+}
+
+/* Ajuste del tamaño del calendario */
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.calendar th, .calendar td {
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.calendar td {
+    height: 100px; /* Celdas más grandes */
+}
+
+/* Sección de publicidad */
+.advertising {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 30px;
+}
+
+.advertising .ad img {
+    max-width: 200px;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3b3b98;
+    color: white;
+}
+/* Botones del calendario */
+.calendar-header button {
+    background-color: #3b3b98;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Reducimos el relleno (padding) */
+    cursor: pointer;
+    font-size: 16px; /* Ajustamos el tamaño de la fuente */
+    width: 100px; /* Fijamos un ancho para que los botones sean menos largos */
+    transition: background-color 0.3s;
+}
+
+.calendar-header button:hover {
+    background-color: #9b59b6;
+}
+/* Ajuste del tamaño de las letras en el calendario */
+.calendar th, .calendar td {
+    padding: 20px;
+    font-size: 22px; /* Aumentamos el tamaño de la fuente para mayor visibilidad */
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #333; /* Aseguramos un buen contraste en las letras */
+}
+
+.calendar th {
+    font-weight: bold;
+    background-color: #3b3b98; /* Color de fondo más oscuro en la cabecera */
+    color: white; /* Letras en blanco para mayor contraste */
+}
+
+.calendar td {
+    height: 120px; /* Ajustamos la altura de las celdas si es necesario */
+    vertical-align: middle; /* Centramos el contenido verticalmente */
+}
+
+.calendar td:hover {
+    background-color: #f1f1f1;
+}
+/* Ajuste para el mini calendario en la barra lateral */
+.sidebar-right h3 {
+    font-size: 24px; /* Aumentamos el tamaño del título */
+    margin-bottom: 15px;
+}
+
+.mini-calendar {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.mini-calendar td {
+    padding: 15px; /* Aumentamos el espaciado entre los meses */
+    text-align: center;
+}
+
+.mini-calendar a {
+    text-decoration: none;
+    color: #3b3b98; /* Mantenemos el color para consistencia */
+    font-size: 18px; /* Aumentamos el tamaño de la fuente */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.mini-calendar a:hover {
+    color: #9b59b6; /* Color de hover para interactividad */
+}
+
+
+
+/*____________________________________________________________________________________________ */
+/* Estilo para la página de perfil */
+/* Estilo para el perfil social */
+/* Estilo general del perfil */
+.profile-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Información del perfil estilo Instagram */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.profile-pic-container {
+    flex: 0 0 150px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #333;
+}
+
+.profile-info {
+    flex-grow: 1;
+    padding-left: 30px;
+}
+
+.profile-info h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.profile-info p {
+    font-size: 16px;
+    color: #666;
+}
+
+.profile-info .stats {
+    display: flex;
+    gap: 40px;
+}
+
+.profile-info .stats p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.bio-section {
+    margin-top: 15px;
+}
+
+/* Botón para editar la biografía */
+#edit-bio-btn {
+    background-color: #0095f6;
+    color: white;
+    padding: 5px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+#edit-bio-btn:hover {
+    background-color: #007bb5;
+}
+
+/* Estilo para el formulario de biografía */
+.bio-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
+
+.bio-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.bio-section button {
+    background-color: #0095f6;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bio-section button:hover {
+    background-color: #007bb5;
+}
+
+/* Botones estilo Instagram */
+button {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #007bb5;
+}
+
+#change-pic-btn {
+    margin-top: 10px;
+}
+
+/* Estilo para el botón de crear publicación */
+#create-post-btn {
+    margin: 20px 0;
+    display: inline-block;
+}
+
+/* Galería estilo Instagram */
+.gallery-section {
+    margin-top: 30px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* _____________________________________________________________________________________________*/
+/* Barra de navegación más grande y accesible */
+nav {
+    width: 100%;
+    background-color: #2C3E50; /* Asegura que el color de fondo ocupe toda la barra */
+    padding: 20px 0; /* Aumentamos el padding para hacer la barra más grande */
+}
+
+nav ul.calendar-nav {
+    display: flex;
+    justify-content: center; /* Centramos los elementos de la barra */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul.calendar-nav li {
+    margin-right: 30px; /* Espacio entre los elementos */
+}
+
+nav ul.calendar-nav li a {
+    text-decoration: none;
+    color: white; /* Contraste alto para accesibilidad */
+    font-size: 20px; /* Aumentamos el tamaño del texto */
+    font-weight: bold; /* Letras en negrita para mejor legibilidad */
+    transition: color 0.3s ease; /* Transición suave para hover */
+}
+
+nav ul.calendar-nav li a:hover {
+    color: #f39c12; /* Color de hover accesible con buen contraste */
+}
+
+/* Ajuste para móviles: barra de navegación más compacta */
+@media (max-width: 768px) {
+    nav ul.calendar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul.calendar-nav li {
+        margin-bottom: 10px; /* Espacio entre los elementos en vista móvil */
+    }
+
+    nav ul.calendar-nav li a {
+        font-size: 18px; /* Tamaño de texto reducido en pantallas pequeñas */
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Evento</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Mis Eventos Quito">
+        </div>
+        <nav>
+            <ul class="calendar-nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="perfil.html">Perfil de Usuario</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <!-- Detalles del evento -->
+    <main>
+        <section id="event-details">
+            <!-- El contenido del evento se cargará dinámicamente -->
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Mis Eventos Quito. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Datos de los eventos
+        const eventos = {
+            "evento1": {
+                titulo: "Degustación Gourmet",
+                descripcion: "Una muestra gastronómica con platillos locales.",
+                fecha: "03 de Agosto 2024",
+                lugar: "Menestras del Negro",
+                precio: "$15",
+                imagen: "img/event1.jpeg"
+            },
+            "evento2": {
+                titulo: "Concierto Jerardo Morán",
+                descripcion: "Un concierto con uno de los artistas más populares de la música nacional.",
+                fecha: "13 de Agosto 2024",
+                lugar: "Plaza de Toros",
+                precio: "Gratis",
+                imagen: "img/event2.jpg"
+            },
+            "evento3": {
+                titulo: "Charla - Las 3 Casas",
+                descripcion: "Una charla interactiva sobre teatro y artes escénicas.",
+                fecha: "28 de Agosto 2024",
+                lugar: "Teatro América",
+                precio: "$20",
+                imagen: "img/event3.jpg"
+            }
+        };
+
+        // Función para cargar los detalles del evento correcto
+        function cargarEvento() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('id');
+            const evento = eventos[eventId];
+
+            if (evento) {
+                document.getElementById('event-details').innerHTML = `
+                    <h2>${evento.titulo}</h2>
+                    <p><strong>Fecha:</strong> ${evento.fecha}</p>
+                    <p><strong>Lugar:</strong> ${evento.lugar}</p>
+                    <p><strong>Precio:</strong> ${evento.precio}</p>
+                    <img src="${evento.imagen}" alt="${evento.titulo}">
+                    <p>${evento.descripcion}</p>
+                    <button onclick="comprarTickets()">Comprar Tickets</button>
+                `;
+            } else {
+                document.getElementById('event-details').innerHTML = `<p>No se encontró el evento.</p>`;
+            }
+        }
+
+        // Llamar a la función para cargar el evento al abrir la página
+        cargarEvento();
+
+        // Función para redirigir a la compra de tickets
+        function comprarTickets() {
+            window.open("https://www.ticketshow.com.ec/", "_blank");
+        }
+    </script>
+</body>
+</html>

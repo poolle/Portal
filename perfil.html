@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - Mis Eventos Quito</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Mis Eventos Quito">
+        </div>
+        <nav>
+            <ul class="calendar-nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="perfil.html">Perfil de Usuario</a></li>
+            </ul>
+        </nav>        
+    </header>
+
+    <!-- Sección de perfil estilo red social -->
+    <main class="profile-page">
+        <!-- Información del usuario -->
+        <section class="profile-header">
+            <div class="profile-pic-container">
+                <img src="img/user-icon.png" alt="Imagen de perfil" id="profile-pic" class="profile-pic">
+                <input type="file" id="change-pic" style="display:none">
+                <button id="change-pic-btn" onclick="document.getElementById('change-pic').click()">Cambiar Foto</button>
+            </div>
+            <div class="profile-info">
+                <h2>Nombre del Usuario</h2>
+                <p>Ciudad: Quito</p>
+                <!-- Botón para agregar la biografía -->
+                <button id="edit-bio-btn" onclick="toggleBioForm()">Biografía</button>
+            </div>
+        </section>
+
+        <!-- Formulario para agregar biografía, inicialmente oculto -->
+        <section class="bio-section" id="bio-section" style="display: none;">
+            <h3>Agregar/Editar Biografía</h3>
+            <form id="bio-form">
+                <textarea id="bio-textarea" placeholder="Escribe tu biografía aquí..."></textarea>
+                <button type="submit">Guardar Biografía</button>
+            </form>
+        </section>
+
+        <!-- Botón para crear publicación -->
+        <section class="create-post-section">
+            <button id="create-post-btn" onclick="toggleForm()">Crear Publicación</button>
+        </section>
+
+        <!-- Formulario para subir imágenes de eventos, inicialmente oculto -->
+        <section class="upload-section" id="upload-section" style="display: none;">
+            <h3>Subir Imagen de un Evento</h3>
+            <form id="upload-form" enctype="multipart/form-data">
+                <label for="event-name">Nombre del Evento:</label>
+                <input type="text" id="event-name" name="event-name" required>
+
+                <label for="event-date">Fecha del Evento:</label>
+                <input type="date" id="event-date" name="event-date" required>
+
+                <label for="event-image">Selecciona una imagen:</label>
+                <input type="file" id="event-image" name="event-image" accept="image/*" required>
+
+                <button type="submit">Subir Imagen</button>
+            </form>
+        </section>
+
+        <!-- Galería de imágenes subidas por el usuario -->
+        <section class="gallery-section">
+            <h3>Mis Publicaciones</h3>
+            <div id="image-gallery" class="gallery">
+                <!-- Las imágenes de eventos subidas se mostrarán aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Mis Eventos Quito. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para mostrar/ocultar el formulario de biografía
+        function toggleBioForm() {
+            const bioSection = document.getElementById('bio-section');
+            if (bioSection.style.display === "none") {
+                bioSection.style.display = "block";
+            } else {
+                bioSection.style.display = "none";
+            }
+        }
+
+        // Función para mostrar/ocultar el formulario de publicación
+        function toggleForm() {
+            const formSection = document.getElementById('upload-section');
+            if (formSection.style.display === "none") {
+                formSection.style.display = "block";
+            } else {
+                formSection.style.display = "none";
+            }
+        }
+
+        // Script para cambiar la imagen de perfil
+        document.getElementById('change-pic').addEventListener('change', function(event) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profile-pic').src = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+
+        // Script para manejar la subida de imágenes de eventos
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Obtener los valores del formulario
+            const eventName = document.getElementById('event-name').value;
+            const eventDate = document.getElementById('event-date').value;
+            const eventImage = document.getElementById('event-image').files[0];
+
+            if (eventImage) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Crear un nuevo elemento para la imagen subida
+                    const imgDiv = document.createElement('div');
+                    imgDiv.classList.add('gallery-item');
+
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    imgElement.alt = eventName;
+
+                    const caption = document.createElement('p');
+                    caption.textContent = `${eventName} (${eventDate})`;
+
+                    imgDiv.appendChild(imgElement);
+                    imgDiv.appendChild(caption);
+
+                    // Agregar la imagen a la galería
+                    document.getElementById('image-gallery').appendChild(imgDiv);
+                };
+
+                // Leer la imagen como URL base64
+                reader.readAsDataURL(eventImage);
+            }
+        });
+
+        // Script para manejar la biografía
+        document.getElementById('bio-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const bioText = document.getElementById('bio-textarea').value;
+            alert('Biografía guardada: ' + bioText);
+            document.getElementById('bio-section').style.display = "none";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Eventos - Mis Eventos Quito</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Mis Eventos Quito">
+        </div>
+        <nav>
+            <ul class="calendar-nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="perfil.html">Perfil de Usuario</a></li>
+            </ul>
+        </nav>        
+    </header>
+
+    <!-- Calendario central -->
+    <main class="calendar-page">
+        <section class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <h2 id="month-year">Septiembre 2024</h2>
+                <button id="next-month">&gt;</button>
+            </div>
+
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Dom</th>
+                        <th>Lun</th>
+                        <th>Mar</th>
+                        <th>Mié</th>
+                        <th>Jue</th>
+                        <th>Vie</th>
+                        <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Los días se generarán automáticamente -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Barra lateral derecha con mini calendario de todo el año -->
+        <aside class="sidebar-right">
+            <h3>Calendario Anual 2024</h3>
+            <table class="mini-calendar">
+                <tr>
+                    <td><a href="#" onclick="goToMonth(0)">Enero</a></td>
+                    <td><a href="#" onclick="goToMonth(1)">Febrero</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="goToMonth(2)">Marzo</a></td>
+                    <td><a href="#" onclick="goToMonth(3)">Abril</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="goToMonth(4)">Mayo</a></td>
+                    <td><a href="#" onclick="goToMonth(5)">Junio</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="goToMonth(6)">Julio</a></td>
+                    <td><a href="#" onclick="goToMonth(7)">Agosto</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="goToMonth(8)">Septiembre</a></td>
+                    <td><a href="#" onclick="goToMonth(9)">Octubre</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="goToMonth(10)">Noviembre</a></td>
+                    <td><a href="#" onclick="goToMonth(11)">Diciembre</a></td>
+                </tr>
+            </table>
+        </aside>
+    </main>
+
+    <!-- Sección de publicidad -->
+    <section class="advertising">
+        <div class="ad">
+            <img src="img/publicidad1.jpg" alt="Publicidad">
+        </div>
+        <div class="ad">
+            <img src="img/publicidad2.jpg" alt="Publicidad">
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Mis Eventos Quito. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/calendar.js"></script>
+</body>
+</html>
